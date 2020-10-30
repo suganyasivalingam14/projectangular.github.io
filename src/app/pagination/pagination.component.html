@@ -1,0 +1,65 @@
+<div id=pagination>
+
+  <ul class="pagination">
+
+    <button class="btn btn-primary active" [disabled]="page===0" (click)=setPage(0)><i
+        class="fas fa-backward"></i></button>
+    <button class="btn btn-primary active" [disabled]="page===0" (click)=setPage(page-1)><i
+        class="fas fa-angle-double-left"></i></button>
+    <button class="btn btn-primary active" *ngFor="let button of pagebuttons"
+      [ngClass]="{'selectedpage': page === button-1 }" (click)=setPage(button-1)> {{button}} </button>
+    <!-- <button class="btn btn-primary active" [ngClass]="{'selectedpage': page === 1 }" (click)=setPage(1)> 2 </button>
+    <button class="btn btn-primary active" [ngClass]="{'selectedpage': page === 2 }" (click)=setPage(2)> 3 </button>
+    <button class="btn btn-primary active" [ngClass]="{'selectedpage': page === 3 }" (click)=setPage(3)> 4 </button>
+    <button class="btn btn-primary active" [ngClass]="{'selectedpage': page === 4 }" (click)=setPage(4)> 5 </button> -->
+    <button class="btn btn-primary active" [disabled]="page===lastpage" (click)=setPage(page+1)><i
+        class="fas fa-angle-double-right"></i></button>
+    <button class="btn btn-primary active" [disabled]="page===lastpage" (click)=setPage(lastpage)><i
+        class="fas fa-forward"></i></button></ul>
+
+        <button (click)="downloadExcel()">Download as Excel</button>
+  <ul> <input type="text" (change)=searchdata($event) class="search" placeholder="Search"> <button >Search</button></ul><br>
+  <ul>
+    <div class="select">
+      <select [(ngModel)]="pagelimit" (change)="changepagelimit()">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+      </select>
+    </div>
+  </ul>
+
+
+
+  <table class="table table-hover">
+
+    <!-- <thead> -->
+
+    <tr>
+      <th scope="col"> Page Id</th>
+      <th scope="col"> ID </th>
+      <th scope="col"> Name</th>
+      <th scope="col"> Email </th>
+      <th scope="col"> Body </th>
+      <th scope="col"> Index </th>
+
+    </tr>
+
+    <!-- </thead>
+      <tbody> -->
+
+    <tr *ngFor="let tableRow of comments;index as i">
+      <td *ngIf="i>=initial && i<end"> {{tableRow.postId}}</td>
+      <td *ngIf="i>=initial && i<end"> {{tableRow.id}}</td>
+      <td *ngIf="i>=initial && i<end">{{tableRow.name}}</td>
+      <td *ngIf="i>=initial && i<end">{{tableRow.email}}</td>
+      <td *ngIf="i>=initial && i<end">{{tableRow.body}}</td>
+      <td *ngIf="i>=initial && i<end">{{i}}</td>
+
+    </tr>
+    <!-- </tbody> -->
+  </table>
+
+</div>

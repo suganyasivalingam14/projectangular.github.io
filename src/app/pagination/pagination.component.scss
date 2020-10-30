@@ -1,0 +1,42 @@
+#pagination {
+  table {
+    display: table;
+    // border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+
+  }
+
+  .select {
+    float: right;
+    margin-left: 850px;
+  }
+
+  .search {
+    float: left;
+    border-radius: 10px;
+    border-color: black;
+    margin-left: 200px;
+
+
+  }
+
+  .selectedpage {
+    background-color: black;
+    border-color: black;
+  }
+
+  .pagination {
+    float: left;
+    margin-left: 10px;
+    // background-color:  rgb(122, 116, 115);
+
+  }
+
+  .btn {
+    background-color: rgb(151, 151, 151);
+    border-color: black;
+    color:black;
+  }
+
+}
